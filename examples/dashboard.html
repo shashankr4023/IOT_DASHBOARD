@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>IOT Healthcare Application</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="red" data-image="../assets/img/sidebar-5.jpg">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a  class="simple-text">
+                        IOT Healthcare
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./analytics.html">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>Analytics</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Table List</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" >
+            <div class="content" >
+                <div class="container-fluid">
+                    <h1 class = "simple-text" >
+                        IOT Healthcare
+                    </h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Temperature Recordings</h4>
+                                    <p class="card-category">Recorded in Fahrenheit</p>
+                                </div>
+                                <div class="card-body ">
+                                    <div id="g1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Blood Pressure Recordings</h4>
+                                    <p class="card-category">24 Hours performance</p>
+                                </div>
+                                <div class="card-body ">
+                                    <div id="g2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Pulse Rate Recordings</h4>
+                                    <p class="card-category">Measured in beats per minute</p>
+                                </div>
+                                <div class="card-body ">
+                                    <div id="g3"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                        <p class="copyright text-center">
+                            Made with love for a better Healthcare
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+   
+</body>
+
+<script src="../static/raphael-2.1.4.min.js"></script>
+<script src="../static/justgage.js"></script>
+<script>
+    var g1,g2;
+    document.addEventListener("DOMContentLoaded",function(event){
+        g1 = new JustGage({
+            id:"g1",
+            value: {temperature},
+            valueFontcolor: "yellow ",
+            min: 92,
+            max: 108,
+            title: "Temperature",
+            label: "Fahrenheit"
+        });
+
+        g2 = new JustGage({
+            id: "g2",
+            value: {Blood_Pressure},
+            valueFontcolor: "red ",
+            min: "80/40",
+            max: "160/120",
+            title: "Blood Pressure",
+            label: "mm Hg"
+
+        })
+
+        g3 = new JustGage({
+            id:"g3",
+            value: {Heart_Beat},
+            valueFontcolor: "blue",
+            min: 30,
+            max: 150,
+            title: "Pulse Rate",
+            label: "beats per min"
+        })
+    });
+</script>
+</html>
